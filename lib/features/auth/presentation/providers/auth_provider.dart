@@ -44,7 +44,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
     //TODO: necesito guardar el token fisicamente
     state.copyWith(
       user: user,
-      authStatus: AuthStatus.authenticated
+      authStatus: AuthStatus.authenticated,
+      errorMessage: ''
     );
   }
 
