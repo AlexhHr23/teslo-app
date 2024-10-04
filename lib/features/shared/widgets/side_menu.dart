@@ -77,6 +77,7 @@ class _SideMenuState extends ConsumerState<SideMenu> {
           child: CustomFilledButton(
             onPressed: () {
               ref.read(authProvider.notifier).logout();
+              
             },
             text: 'Cerrar sesión'
           ),

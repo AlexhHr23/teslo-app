@@ -1,13 +1,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:teslo_app/config/router/app_router_notifier.dart';
 
 import '../../features/auth/presentation/screens/screens.dart';
 import '../../features/products/presentation/screens/screens.dart';
 
 
 final goRouterProvider = Provider((ref) {
+
+  final goRouterNotifier = ref.read(goRouterNotifierProvider);
   return  GoRouter(
-  initialLocation: '/splash',
+  initialLocation: '/login',
+  refreshListenable: goRouterNotifier,
   routes: [
 
     //*Primera Pantalla
@@ -33,9 +37,9 @@ final goRouterProvider = Provider((ref) {
   ],
 
   redirect: (context, state) {
-    print(state);
+    print(state.matchedLocation);
 
-    return '/login';
+    return null;
   },
 );
 });
