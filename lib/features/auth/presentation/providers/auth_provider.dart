@@ -35,8 +35,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
     _setLoggedUser(user);
    }on CustomError catch(e) {
     logout(e.message);
-   }catch (e) {
-    logout('Error no controlado');
+   }catch (e, s) {
+    logout('Error no controlado:');
    }
   }
 

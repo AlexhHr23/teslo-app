@@ -52,7 +52,9 @@ class AuthDatasourceImpl extends AuthDatasource {
         throw CustomError('Revisar conexion a internet');
       }
       throw Exception();
-    }catch (e) {
+    }catch (e,s) {
+      print('$e');
+      print('$s');
       throw Exception();
     }
   }
