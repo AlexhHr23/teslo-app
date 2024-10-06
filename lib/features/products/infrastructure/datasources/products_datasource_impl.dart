@@ -30,10 +30,10 @@ class ProductsDatasourceImpl extends ProductsDatasource{
 
   @override
   Future<List<Product>> getAllProducts({int limit = 10, int offset = 0}) async{
-    final response = await dio.get<List>('api/products?limit=$limit&offset=$offset');
+    final response = await dio.get<List>('/products?limit=$limit&offset=$offset');
     final List<Product> products = [];
     for(var product in response.data ?? [] ){
-      product.add( ProductMaper.jsonToEntity(product) );
+      products.add( ProductMaper.jsonToEntity(product) );
     }
     return products;
 
