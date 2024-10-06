@@ -1,10 +1,9 @@
-
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:teslo_app/features/auth/presentation/providers/auth_provider.dart';
-import 'package:teslo_app/features/products/domain/domain.dart';
 import 'package:teslo_app/features/products/infrastructure/datasources/products_datasource_impl.dart';
-import 'package:teslo_app/features/products/infrastructure/repositories/products_repository_impl.dart';
+import '../../../auth/presentation/providers/auth_provider.dart';
+import '../../domain/domain.dart';
+import '../../infrastructure/repositories/products_repository_impl.dart';
+
 
 final productsRepositoryProvider = Provider<ProductsRepository>((ref) {
 
