@@ -21,13 +21,13 @@ class ProductFormNotifier extends StateNotifier<ProductFormState> {
       : super(ProductFormState(
           id: product.id,
           title: Title.dirty(product.title),
-          slug: Slug.dirty(product.title),
+          slug: Slug.dirty(product.slug),
           price: Price.dirty(product.price),
+          inStock: Stock.dirty(product.stock),
           sizes: product.sizes,
           gender: product.gender,
-          inStock: Stock.dirty(product.stock),
           description: product.description,
-          tags: product.tags.join(', '),
+          tags: product.tags.join(','),
           images: product.images,
         ));
 
@@ -169,6 +169,8 @@ class ProductFormState {
           isFormValid: isFormValid ?? this.isFormValid,
           id: id ?? this.id,
           title: title ?? this.title,
+          slug: slug ?? this.slug,
+          price: price ?? this.price,
           gender: gender ?? this.gender,
           inStock: inStock ?? this.inStock,
           description: description ?? this.description,
