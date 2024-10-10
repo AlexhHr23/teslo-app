@@ -12,6 +12,13 @@ class ProductScreen extends ConsumerWidget {
 
   const ProductScreen({super.key, required this.productId});
 
+  void showSnackBar( BuildContext context){
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Producto Acualizado'))
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
@@ -35,7 +42,11 @@ class ProductScreen extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           if(productState.product == null) return;
-          ref.read(productFormProvider(productState.product!).notifier).onFormSubmit();
+          ref.read(productFormProvider(productState.product!).notifier)
+          .onFormSubmit().then((value) {
+            if( !value ) return;
+            showSnackBar(context);
+          });
         },
         child: const Icon(Icons.save_outlined),
       ),
