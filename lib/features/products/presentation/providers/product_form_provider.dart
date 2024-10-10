@@ -171,6 +171,7 @@ class ProductFormState {
           title: title ?? this.title,
           slug: slug ?? this.slug,
           price: price ?? this.price,
+          sizes: sizes ?? this.sizes,
           gender: gender ?? this.gender,
           inStock: inStock ?? this.inStock,
           description: description ?? this.description,
